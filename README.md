@@ -15,11 +15,30 @@ on:
     - cron: 0 0 * * *
 ```
 
+### 🔑 Actions Secrets and Variables
+
+**Secrets:**
+
+| Name               | Description                                                      |
+|--------------------|------------------------------------------------------------------|
+| `SLACK_API_TOKEN`  | Optional; Required for scraping EOD messages for slack           |
+| `GIT_ACCESS_TOKEN` | Personal Access Token; Needs write permissions to the data repo. |
+
+**Variables:**
+
+| Name                | Description                                                    |
+|---------------------|----------------------------------------------------------------|
+| `LEADERBOARD_REPO`  | Optional; Specify to use a fork of the leaderboard app repo.   |
+| `SLACK_EOD_CHANNEL` | Optional; The channel ID to use for scanning for EOD messages. |
+
 ## 🚀 Deploying Leaderboard
 
 TLDR; just click deploy...
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard-org-data-template%2Ftree%2Fmain&env=GITHUB_PAT&envDescription=GitHub%20Personal%20Access%20Token%20is%20required%20with%20the%20following%20scopes%20repo%2C%20read%3Aorg%2C%20read%3Aproject%2C%20read%3Auser&envLink=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard-org-data-template%2Fblob%2Fmain%2FREADME.md&project-name=leaderboard&repository-name=leaderboard-data&demo-title=Open%20Healthcare%20Network%20-%20Leaderboard&demo-description=Leaderboard%20collects%20data%20from%20GitHub%20and%20Slack%20to%20show%20off%20the%20work%20of%20our%20open%20source%20contributors&demo-url=https%3A%2F%2Fcontributors.ohc.network&demo-image=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard%2Fassets%2F25143503%2F6352a4cf-4b8b-4f80-b45c-6af323ee502e&root-directory=leaderboard&build-command=pnpm%20build&install-command=.%2Fpre-deploy.sh+%26%26+pnpm+install)
+
+> [!NOTE]
+> After deployment, run the scraper workflow once to populate the data repo with some data.
 
 ### Environment Variables
 
