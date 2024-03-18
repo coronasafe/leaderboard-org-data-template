@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 : "${LEADERBOARD_REPO:=https://github.com/coronasafe/leaderboard.git}"
 
 git init
