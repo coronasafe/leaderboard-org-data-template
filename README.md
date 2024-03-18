@@ -1,47 +1,46 @@
 # Template repository for Leaderboard Data Repo
 
-## Configuring Scraper
+Visit [Open Healthcare Network's Leaderboard Deployment](https://contributors.ohc.network/) deployed from [`coronasafe/leaderboard-data` repository](https://github.com/coronasafe/leaderboard-data).
+
+## ⚙️ Configuring Scraper
 
 The scraper scripts fetches data every 24 hours. The scraper workflow needs to run at an interval of 24 hours.
 
 To change what time the scraper workflow runs, update the schedule cron value of the action:
 
 ```yml
-# .github/workflows/scraper.yml
+# .github/workflows/scraper.yml⚙️
 on:
   schedule:
     - cron: 0 0 * * *
 ```
 
-## Deploying Leaderboard
+## 🚀 Deploying Leaderboard
 
 TLDR; just click deploy...
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard-data%2Ftree%2Fmain%2Fleaderboard&env=GITHUB_PAT&project-name=leaderboard&repository-name=leaderboard-data&demo-title=Open%20Healthcare%20Network%20-%20Leaderboard&demo-description=Leaderboard%20collects%20data%20from%20GitHub%20and%20Slack%20to%20show%20off%20the%20work%20of%20our%20open%20source%20contributors&demo-url=https%3A%2F%2Fcontributors.ohc.network&demo-image=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard%2Fassets%2F25143503%2F6352a4cf-4b8b-4f80-b45c-6af323ee502e)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard-org-data-template%2Ftree%2Fmain%2Fleaderboard&env=GITHUB_PAT&envDescription=GitHub%20Personal%20Access%20Token%20is%20required%20with%20the%20following%20scopes%20repo%2C%20read%3Aorg%2C%20read%3Aproject%2C%20read%3Auser&envLink=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard-org-data-template%2Fblob%2Fmain%2FREADME.md&project-name=leaderboard&repository-name=leaderboard-data&demo-title=Open%20Healthcare%20Network%20-%20Leaderboard&demo-description=Leaderboard%20collects%20data%20from%20GitHub%20and%20Slack%20to%20show%20off%20the%20work%20of%20our%20open%20source%20contributors&demo-url=https%3A%2F%2Fcontributors.ohc.network&demo-image=https%3A%2F%2Fgithub.com%2Fcoronasafe%2Fleaderboard%2Fassets%2F25143503%2F6352a4cf-4b8b-4f80-b45c-6af323ee502e&root-directory=leaderboard&build-command=pnpm%20build&install-command=.%2Fpre-deploy.sh+%26%26+pnpm+install)
 
-### env vars
+### Environment Variables
 
-#### `GITHUB_PAT`
+**`GITHUB_PAT`**
+Some pages like [releases](https://contributors.ohc.network/releases), [projects](https://contributors.ohc.network/projects), etc. are server side rendered on-demand or pre-rendered during build time by calling GitHub's APIs and these calls requires authentication.
+Create a Personal Access Token ([docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)) with the following scopes **`repo`, `read:org`, `read:project`, `read:user`**.
 
-Some pages like [releases](https://contributors.ohc.network/releases), [projects](https://contributors.ohc.network/projects), etc. are server sidered on-demand or pre-rendered during build time by calling GitHub's APIs and this requires authentication.
+### ⚙️ Deploy Configurations
 
-Refer how to [create a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
-
-The following scopes are required:
-
-- `repo`
-- `read:org`
-- `read:project`
-- `read:user`
-
-### Deploy Configurations
-
-The above deploy button uses these configurations.
+The above deploy button uses the following configurations.
 
 Root Directory: `leaderboard`
 Build Command: `pnpm build`
 Install Command: `./pre-deploy.sh && pnpm install`
 
-## Personalizing Leaderboard Deployment
+## 🎨 Personalizing Leaderboard Deployment
 
-TODO
+Leaderboard can be personalized by editing the contents in `config` directory.
+
+**Theme and Colors**
+Leaderboard has support for light and dark mode. To edit the theme colors, update the [`theme.css`](https://github.com/coronasafe/leaderboard-org-data-template/blob/main/config/theme.css) file.
+
+**Logo**
+To change the favicon and logo, replace the files present in the [`config/assets`](https://github.com/coronasafe/leaderboard-org-data-template/tree/main/config/assets) directory with the desired ones.
