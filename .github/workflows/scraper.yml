@@ -17,6 +17,7 @@ jobs:
       issues: read
       pull-requests: read
       contents: write
-    secrets: inherit
+    secrets:
+      GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
     with:
       slack-eod-channel: ${{ vars.SLACK_EOD_CHANNEL }}
